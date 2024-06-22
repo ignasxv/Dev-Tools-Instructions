@@ -1,5 +1,5 @@
 # Configuring Git in WSL
-
+[Source](https://dev.to/stephanlamoureux/configuring-git-in-wsl-5e3m)
 ## Requirements
 - Windows 10/11
 - WSL installed
