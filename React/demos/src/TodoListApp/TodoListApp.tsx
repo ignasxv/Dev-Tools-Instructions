@@ -20,11 +20,12 @@ export default function TodoListApp() {
   }
 
   function handleAdd(text: string) {
-    setTasks([{ id: nextId++, text: text }, ...tasks]);
-
+    if(start) { setTasks( []); setStart(false);}
+    setTasks(prev => [{ id: nextId++, text: text }, ...prev]);
   }
 
   function handleChange(task: any) {
+    setStart(false);
     setTasks(
       tasks.map((t) => {
         if (t.id == task.id) return task;
@@ -46,4 +47,6 @@ export default function TodoListApp() {
       />
     </>
   );
+
+  
 }
