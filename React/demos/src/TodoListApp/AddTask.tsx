@@ -1,6 +1,11 @@
-import React, { useState } from "react";
-let q = 0;
-export default function AddTask( {handleAdd} ) {
+import { useState } from "react";
+
+interface Props{
+  handleAdd: (content: string) => void;
+}
+
+
+export default function AddTask( { handleAdd }: Props ) {
   const [content, setContent] = useState("");
   return (
     <>
@@ -12,7 +17,7 @@ export default function AddTask( {handleAdd} ) {
           className="form-control me-1"
           placeholder="Add Task"
         />
-        <button onClick={ () => { handleAdd(content); setContent( "" + q++ ) } } type="submit" className="btn btn-primary me-0">
+        <button onClick={ () => { {content && handleAdd(content)}; setContent( "" ) } } type="submit" className="btn btn-primary me-0">
           Add
         </button>
       </div>

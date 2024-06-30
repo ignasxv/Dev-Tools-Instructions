@@ -1,18 +1,14 @@
-import { MouseEvent, ReactNode, useState } from "react";
-import Button from "./Button";
-
+import {ReactNode, useState } from "react";
 
 interface PropsName{
-    items: ReactNode[];
-    heading: string;
-    onSelectItem: (item: string) => void;
+    items?: ReactNode[];
+    heading?: string;
 }
 
 
 
-function ListGroup({items, heading, onSelectItem}: PropsName) {
+function ListGroup({items = [1,2,3], heading}: PropsName) {
   
-  const name = "ignas";
 
   // Hook
   const arr = useState(-1);
@@ -20,14 +16,6 @@ function ListGroup({items, heading, onSelectItem}: PropsName) {
   arr[1] // updater
  
 
-  const handleClick = (e: MouseEvent) => {
-    console.log("clicket");
-    console.log(e.clientX, e.clientY);
-  };
-
-  function handle2(e: MouseEvent) {
-    console.log(e.currentTarget);
-  }
 
   return (
     <>
@@ -40,7 +28,7 @@ function ListGroup({items, heading, onSelectItem}: PropsName) {
             className={
               "list-group-item " + (arr[0] === index ? "active" : "")
             }
-            onClick={(e) => {console.log(e.clientX)}}
+            onClick={(e) => {arr[1](index)}}
           >
             {item}
           </li>

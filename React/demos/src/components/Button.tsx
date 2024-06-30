@@ -6,17 +6,19 @@ interface ButtonProps {
   whenClicked: (name: string) => void;
 }
 
-const Button = ({ text, color='primary', whenClicked }: ButtonProps) => {
+const Button = ({ text, color = 'primary', whenClicked }: ButtonProps) => {
   return (
-    <button
-      type="button"
-      className={"btn btn-" + color}
-      onClick={() => {
-        whenClicked(color);
-      }}
-    >
-      <h1>{text}</h1>A {color} Button
-    </button>
+    <>
+      <button
+        type="button"
+        className={"btn btn-" + color}
+        onClick={() => {
+          whenClicked(color);
+        }}
+      >
+        <h1>{text}</h1>A {color} Button
+      </button>
+    </>
   );
 };
 

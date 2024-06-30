@@ -10,6 +10,7 @@ interface Props {
 export default function TaskList({tasks, handleChange, handleDelete}: Props) {
   return (
     <>
+    
       {tasks.map( (task: any) => <Task key={task.id} task={task} handleChange={handleChange} handleDelete={handleDelete} />  )}
     </>
   );

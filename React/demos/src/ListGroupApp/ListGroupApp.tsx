@@ -1,11 +1,10 @@
 import { useState } from "react";
-import ListGroup from "./components/ListGroup";
-import Alert from "./components/Alert";
-import Button from "./components/Button";
+import ListGroup from "./ListGroup";
+import Alert from "../components/Alert";
+import Button from "../components/Button";
 
 export default function ListGroupApp() {
-  const items: string[] = ["kenya", "uganda", "kampala"];
-  const names: string[] = [];
+
 
   const [alertVisibility, setAlertVisibility] = useState(false);
 
@@ -27,12 +26,10 @@ export default function ListGroupApp() {
 
   return (
     <>
+    <h1 className="display-1" >List Group App</h1>
       <ListGroup
-        onSelectItem={(item: string) => {
-          console.log(item);
-        }}
         items={Buttons}
-        heading="Cities"
+        heading="Listed Buttons"
       />
 
       {alertVisibility && (

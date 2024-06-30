@@ -21,7 +21,7 @@ export default function TaskGroup({ listName, tasks, listImage, handleAdd, handl
         />
         <div className="card-body">
           <h5 className="card-title">{listName}</h5>
-          <AddTask handleAdd={handleAdd} />
+          <AddTask handleAdd = { handleAdd } />
           <TaskList handleChange={handleChange} handleAdd={handleAdd} handleDelete={handleDelete} tasks={tasks} />
         </div>
       </div>
