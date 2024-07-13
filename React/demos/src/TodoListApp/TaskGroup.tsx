@@ -1,12 +1,15 @@
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 
+type taskType = {id: number, text: string};
+type tasksT = taskType[];
+
 interface Props {
   listName: string;
-  tasks: any;
+  tasks: tasksT;
   listImage: string;
-  handleDelete: (task: any) => void;
-  handleChange: (task: any) => void;
+  handleDelete: (taskId: number ) => void;
+  handleChange: (task: taskType) => void;
   handleAdd: (text: string) => void;
 }
 
@@ -22,7 +25,7 @@ export default function TaskGroup({ listName, tasks, listImage, handleAdd, handl
         <div className="card-body">
           <h5 className="card-title">{listName}</h5>
           <AddTask handleAdd = { handleAdd } />
-          <TaskList handleChange={handleChange} handleAdd={handleAdd} handleDelete={handleDelete} tasks={tasks} />
+          <TaskList handleChange={handleChange} handleDelete={handleDelete} tasks={tasks} />
         </div>
       </div>
     </>

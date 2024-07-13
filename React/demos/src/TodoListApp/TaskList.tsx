@@ -1,17 +1,18 @@
 import { useState } from "react";
 
+type taskType = {id: number, text: string};
+
 interface Props {
-  tasks: any;
-  handleDelete: (task: any) => void;
-  handleAdd: (task: any) => void;
-  handleChange: (task: any) => void;
+  tasks: taskType[];
+  handleDelete: (taskId: number) => void;
+  handleChange: (task: taskType) => void;
 }
 
 export default function TaskList({tasks, handleChange, handleDelete}: Props) {
   return (
     <>
     
-      {tasks.map( (task: any) => <Task key={task.id} task={task} handleChange={handleChange} handleDelete={handleDelete} />  )}
+      {tasks.map( (task: taskType) => <Task key={task.id} task={task} handleChange={handleChange} handleDelete={handleDelete} />  )}
     </>
   );
 
@@ -20,15 +21,15 @@ function Task({
   handleChange,
   handleDelete,
 }: {
-  task: any;
-  handleChange: (task: any) => void;
-  handleDelete: (task: any) => void;
+  task: taskType;
+  handleChange: (task: taskType) => void;
+  handleDelete: (task: number) => void;
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [inputVal, setInputVal] = useState(task.text);
   const [taski, setTask] = useState(task);
 
-  let taskContent = isEditing ? (
+  const taskContent = isEditing ? (
     <div className="mb-2 d-flex align-items-center">
       <input type="checkbox" className="form-check-input me-2" />
       <input

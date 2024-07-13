@@ -2,6 +2,8 @@ import { useState } from "react";
 import TaskGroup from "./TaskGroup";
 
 let nextId = 0;
+type taskType = {id: number, text: string};
+
 
 export default function TodoListApp() {
 
@@ -15,7 +17,7 @@ export default function TodoListApp() {
 
   const [tasks, setTasks] = useState(initialTasks);
 
-  function handleDelete(taskId: any) {
+  function handleDelete(taskId: number) {
     setTasks(tasks.filter((t) => t.id !== taskId ));
   }
 
@@ -24,7 +26,7 @@ export default function TodoListApp() {
     setTasks(prev => [{ id: nextId++, text: text }, ...prev]);
   }
 
-  function handleChange(task: any) {
+  function handleChange(task: taskType) {
     setStart(false);
     setTasks(
       tasks.map((t) => {
@@ -45,6 +47,8 @@ export default function TodoListApp() {
         handleChange={handleChange}
         handleAdd={handleAdd}
       />
+
+  
     </>
   );
 

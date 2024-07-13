@@ -5,18 +5,13 @@ interface PropsName{
     heading?: string;
 }
 
-
-
 function ListGroup({items = [1,2,3], heading}: PropsName) {
   
-
   // Hook
   const arr = useState(-1);
   arr[0] //variable
   arr[1] // updater
  
-
-
   return (
     <>
       <h1>{heading}</h1>

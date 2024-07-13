@@ -11,13 +11,14 @@ export default function AddTask( { handleAdd }: Props ) {
     <>
       <div className="mb-3 d-flex ">
         <input
+        onSubmit={ () => { console.log("okiii") } }
           onChange={(e) => {setContent(e.target.value)}}
           value={content}
           type="email"
           className="form-control me-1"
           placeholder="Add Task"
         />
-        <button onClick={ () => { {content && handleAdd(content)}; setContent( "" ) } } type="submit" className="btn btn-primary me-0">
+        <button onClick={ () => { {content && handleAdd(content)} setContent( "" ) } } type="submit" className="btn btn-primary me-0">
           Add
         </button>
       </div>
