@@ -16,7 +16,7 @@ const Button = ({ text, color = 'primary', whenClicked }: ButtonProps) => {
           whenClicked(color);
         }}
       >
-        <h1>{text}</h1>A {color} Button
+        <h1>{text}</h1>A {color} Button!
       </button>
     </>
   );
